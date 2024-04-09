@@ -6,4 +6,4 @@ runs:
   entrypoint: 'sh'
   args:
     - '-c'
-    - 'pwd && ls /'
+    - 'ls'
