@@ -12,7 +12,6 @@ on:
     - master
 
 jobs:
-  build-linux:
   build:
     runs-on: ${{ matrix.os }}
     strategy:
