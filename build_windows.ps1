@@ -68,23 +68,17 @@ function DownloadAndCheckFile() {
 
 SetupVsEnv
 
-$version_base = "5.15"
-$version_full = "5.15.2"
+$version_base = "6.5"
+$version_full = "6.5.3"
 #$url = "https://download.qt.io/official_releases/qt/$version_base/$version_full/single/qt-everywhere-src-$version_full.zip"
 $url = "http://master.qt.io/archive/qt/$version_base/$version_full/single/qt-everywhere-src-$version_full.zip"
 $output = "qt-everywhere-src-$version_full.zip"
-$hash_expected = "6c5d37aa96f937eb59fd4e9ce5ec97f45fbf2b5de138b086bdeff782ec661733"
+$hash_expected = "86ac9e77f7a850d3f2e0b39763637636469bd3310ec2186234d18df17744bcba"
 $QT_SRC_DIR = "qt-everywhere-src-$version_full"
 $qt_build_dir = "$QT_SRC_DIR/build"
 $QT_PREFIX = "$PSScriptRoot/qt"
 $BUILD_THREADS = 3
 $PACKAGE_FILE = "cutter-deps-qt-win-x86_64.tar.gz"
-
-
-# https://download.qt.io/official_releases/jom/jom.zip
-$jom_url = "http://master.qt.io/official_releases/jom/jom_1_1_3.zip"
-$jom_archive = "jom.zip"
-$jom_hash = "128fdd846fe24f8594eed37d1d8929a0ea78df563537c0c1b1861a635013fff8"
 
 
 DownloadAndCheckFile $url $output $hash_expected
@@ -146,11 +140,11 @@ if (-not $?) {
 }
 
 Write-Output "Running jom"
-cmd /c "`"$PSScriptRoot/jom/jom.exe`" -J $BUILD_THREADS 2>&1"
+cmd /c "cmake --build . --parallel"
 if (-not $?) {
     Fatal-Error "Qt compilation failed"
 }
-cmd /c "`"$PSScriptRoot/jom/jom.exe`" install 2>&1"
+cmd /c "cmake --install ."
 if (-not $?) {
     Fatal-Error "Qt file installation failed"
 }

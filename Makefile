@@ -120,7 +120,7 @@ else
 endif
 
 define download_extract
-	#curl -L "$1" -o "$2"
+	curl -L "$1" -o "$2"
 	${call check_md5,$2,$3}
 	$(call extract,$2)
 endef
