@@ -120,14 +120,6 @@ if (-not $?) {
     Fatal-Error "Failed to extract source"
 }
 
-DownloadAndCheckFile $jom_url $jom_archive $jom_hash
-
-Write-Output "Extracting jom"
-7z.exe x -bt -aos -bsp1 -ojom "$jom_archive"
-if (-not $?) {
-    Fatal-Error "Failed to extract jom"
-}
-
 Write-Output "Building Qt"
 New-Item -Path . -Name $qt_build_dir -ItemType Directory
 Write-Output "build dir '$qt_build_dir'"

@@ -3,4 +3,6 @@ description: 'Build cutter deps in a docker image'
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  entrypoint: '/github/workflow/.github/actions/build_linux/entrypoint.sh'
+  entrypoint: 'sh -c'
+  args:
+    - 'pwd && ls /'
