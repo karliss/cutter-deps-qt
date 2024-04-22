@@ -55,7 +55,7 @@ jobs:
     - name: build linux outputs
       if: contains(matrix.os, 'ubuntu')
       run: |
-        sudo apt-get install libxcb1-dev libxkbcommon-dev libxkbcommon-x11-dev libgtk-3-dev libgl1-mesa-dev libglu1-mesa-dev libxcb-*-dev
+        sudo apt-get install libxcb1-dev libxkbcommon-dev libxkbcommon-x11-dev libgtk-3-dev libgl1-mesa-dev libglu1-mesa-dev libxcb-*-dev libclang-11-dev
         make ARCH=${{ matrix.arch }}
         echo UPLOAD_FILE=cutter-deps-qt-linux-${{ matrix.arch }}.tar.gz >> $GITHUB_ENV
         echo UPLOAD_ASSET_TYPE=application/gzip >> $GITHUB_ENV
