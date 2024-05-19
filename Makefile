@@ -157,10 +157,8 @@ ${QT_SRC_DIR}:
 	@echo ""
 	$(call download_extract,${QT_SRC_URL},${QT_SRC_FILE},${QT_SRC_MD5})
 	# Add patches here if required
-	#patch ${QT_SRC_DIR}/qtbase/src/plugins/platforms/cocoa/qiosurfacegraphicsbuffer.h qiosurfacegraphicsbuffer.h.patch
 	# https://github.com/macports/macports-ports/blob/d2a7c094acba41c84dbe792480f6a1b32371d5e7/aqua/qt5/Portfile#L1057-L1059
-	#cd ${QT_SRC_DIR}/qtbase && patch -p0 < ../../patch-qmake-dont-hard-code-x86_64-as-the-architecture-when-using-qmake.diff
-	cd ${QT_SRC_DIR}/qtbase && patch -p1 < ../../patches/src_gui_platform_unix_qxkbcommon.cpp.patch
+	#cd ${QT_SRC_DIR}/qtbase && patch -p0 < ../../patches/patch-qmake-dont-hard-code-x86_64-as-the-architecture-when-using-qmake.diff
 
 .PHONY: src
 src: ${QT_SRC_DIR}
@@ -201,6 +199,7 @@ qt: ${QT_SRC_DIR} ${PLATFORM_QT_DEPS}
 			-skip qtdatavis3d \
 			-skip qtdeclarative \
 			-skip qtdoc \
+			-skip qtgraphs \
 			-skip qtgrpc \
 			-skip qthttpserver \
 			-skip qtlanguageserver \
