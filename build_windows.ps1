@@ -68,12 +68,12 @@ function DownloadAndCheckFile() {
 
 SetupVsEnv
 
-$version_base = "6.5"
-$version_full = "6.5.3"
+$version_base = "6.7"
+$version_full = "6.7.0"
 #$url = "https://download.qt.io/official_releases/qt/$version_base/$version_full/single/qt-everywhere-src-$version_full.zip"
 $url = "http://master.qt.io/archive/qt/$version_base/$version_full/single/qt-everywhere-src-$version_full.zip"
 $output = "qt-everywhere-src-$version_full.zip"
-$hash_expected = "86ac9e77f7a850d3f2e0b39763637636469bd3310ec2186234d18df17744bcba"
+$hash_expected = "9d5f98de73abc7411dcec2df729f64dd25f8021eff140155ec410950cad24fb5"
 $QT_SRC_DIR = "qt-everywhere-src-$version_full"
 $qt_build_dir = "$QT_SRC_DIR/build"
 $QT_PREFIX = "$PSScriptRoot/qt"

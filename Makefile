@@ -24,15 +24,15 @@ endif
 #BASE_URL=http://www.mirrorservice.org/sites/download.qt-project.org
 BASE_URL=https://download.qt.io
 
-QT_VER_FULL=6.5.3
-QT_VER_SHORT=6.5
+QT_VER_FULL=6.7.0
+QT_VER_SHORT=6.7
 ifeq (${PLATFORM},win)
 QT_SRC_FILE=qt-everywhere-src-${QT_VER_FULL}.zip
-QT_SRC_MD5=af5879e459f028b0214fb7e34a968503
+QT_SRC_MD5=3923d6c0e9a5f986b0bd8678c97c14c8
 QT_SRC_URL=${BASE_URL}/official_releases/qt/${QT_VER_SHORT}/${QT_VER_FULL}/single/${QT_SRC_FILE}
 else
 QT_SRC_FILE=qt-everywhere-src-${QT_VER_FULL}.tar.xz
-QT_SRC_MD5=755db0527410df135609b51defa1a689
+QT_SRC_MD5=4468b457adb3a96294947e601fc877ca
 QT_SRC_URL=${BASE_URL}/official_releases/qt/${QT_VER_SHORT}/${QT_VER_FULL}/single/${QT_SRC_FILE}
 endif
 
