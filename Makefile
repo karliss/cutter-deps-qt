@@ -189,6 +189,8 @@ qt: ${QT_SRC_DIR} ${PLATFORM_QT_DEPS}
 			-no-sql-psql \
 			-no-sql-sqlite \
 			-no-feature-assistant \
+			-no-feature-clang \
+			-no-feature-designer \
 			-nomake tests \
 			-nomake examples \
 			-skip qt3d \
@@ -225,7 +227,6 @@ qt: ${QT_SRC_DIR} ${PLATFORM_QT_DEPS}
 			-skip qtvirtualkeyboard \
 			-skip qtwebchannel \
 			-skip qtwebengine \
-			-skip qtwebglplugin \
 			-skip qtwebsockets \
 			-skip qtwebview \
 			${PLATFORM_QT_OPTIONS}
