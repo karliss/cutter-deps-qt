@@ -57,7 +57,7 @@ PLATFORM_QT_CONFIGURE=configure.bat
 PLATFORM_QT_OPTIONS=-skip qtwayland -skip qtmacextras -skip qtx11extras
 endif
 
-BUILD_THREADS:=4
+BUILD_THREADS:=1
 
 PACKAGE_FILE=cutter-deps-qt-${PLATFORM}-${ARCH}.tar.gz
 
