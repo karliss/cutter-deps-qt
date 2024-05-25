@@ -231,13 +231,8 @@ qt: ${QT_SRC_DIR} ${PLATFORM_QT_DEPS}
 			-DCMAKE_WrapClang_FOUND=false \
 			${PLATFORM_QT_OPTIONS}
 
-ifeq (${PLATFORM},win)
-	cd "${QT_BUILD_DIR}" && "${ROOT_DIR}/jom/jom.exe" -J ${BUILD_THREADS}
-	cd "${QT_BUILD_DIR}" && "${ROOT_DIR}/jom/jom.exe" install
-else
-	cmake --build "${QT_BUILD_DIR}" -parallel ${BUILD_THREADS} 
+	cmake --build "${QT_BUILD_DIR}" -j ${BUILD_THREADS} 
 	cmake --install "${QT_BUILD_DIR}"
-endif
 
 ifeq (${PLATFORM},macos)
 	cd "${QT_PREFIX}/include" && \
