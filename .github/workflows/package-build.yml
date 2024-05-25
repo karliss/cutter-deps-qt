@@ -65,6 +65,7 @@ jobs:
           libxcb-*-dev \
           libclang-11-dev \
           llvm-11
+        apt list --installed
         sudo apt remove llvm-10
         make ARCH=${{ matrix.arch }}
         echo UPLOAD_FILE=cutter-deps-qt-linux-${{ matrix.arch }}.tar.gz >> $GITHUB_ENV
