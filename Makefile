@@ -57,7 +57,7 @@ PLATFORM_QT_CONFIGURE=configure.bat
 PLATFORM_QT_OPTIONS=-skip qtwayland -skip qtmacextras -skip qtx11extras
 endif
 
-BUILD_THREADS:=1
+BUILD_THREADS:=4
 
 PACKAGE_FILE=cutter-deps-qt-${PLATFORM}-${ARCH}.tar.gz
 
@@ -235,7 +235,7 @@ ifeq (${PLATFORM},win)
 	cd "${QT_BUILD_DIR}" && "${ROOT_DIR}/jom/jom.exe" -J ${BUILD_THREADS}
 	cd "${QT_BUILD_DIR}" && "${ROOT_DIR}/jom/jom.exe" install
 else
-	cmake --build "${QT_BUILD_DIR}" -j${BUILD_THREADS} 
+	cmake --build "${QT_BUILD_DIR}" -parallel ${BUILD_THREADS} 
 	cmake --install "${QT_BUILD_DIR}"
 endif
 

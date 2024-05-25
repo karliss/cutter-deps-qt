@@ -49,7 +49,7 @@ jobs:
       if: contains(matrix.os, 'macos')
       run: |
         xcode-select --print-path
-        make ARCH=${{ matrix.arch }}
+        make ARCH=${{ matrix.arch }} BUILD_THREADS=1
         echo UPLOAD_FILE=cutter-deps-qt-macos-${{ matrix.arch }}.tar.gz >> $GITHUB_ENV
         echo UPLOAD_ASSET_TYPE=application/gzip >> $GITHUB_ENV
     - name: build linux outputs
