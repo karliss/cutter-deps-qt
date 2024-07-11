@@ -24,23 +24,21 @@ endif
 #BASE_URL=http://www.mirrorservice.org/sites/download.qt-project.org
 BASE_URL=https://download.qt.io
 
-QT_VER_FULL=6.7.1
+QT_VER_FULL=6.7.2
 QT_VER_SHORT=6.7
 ifeq (${PLATFORM},win)
 QT_SRC_FILE=qt-everywhere-src-${QT_VER_FULL}.zip
-QT_SRC_MD5=36bcd455a86663d39ca96913474dd047
+QT_SRC_MD5=69c87bb306ab78b988fb69819c32f3de
 QT_SRC_URL=${BASE_URL}/official_releases/qt/${QT_VER_SHORT}/${QT_VER_FULL}/single/${QT_SRC_FILE}
 else
 QT_SRC_FILE=qt-everywhere-src-${QT_VER_FULL}.tar.xz
-QT_SRC_MD5=dfe73333c2fa22582ad76a679f0ab1e1
+QT_SRC_MD5=06d35b47349c7c0a45710daad359e07b
 QT_SRC_URL=${BASE_URL}/official_releases/qt/${QT_VER_SHORT}/${QT_VER_FULL}/single/${QT_SRC_FILE}
 endif
 
 QT_SRC_DIR=qt-everywhere-src-${QT_VER_FULL}
 QT_BUILD_DIR=${QT_SRC_DIR}/build
 QT_PREFIX=${ROOT_DIR}/qt
-
-JOM_URL=https://download.qt.io/official_releases/jom/jom.zip
 
 ifeq (${PLATFORM},linux)
 PLATFORM_QT_CONFIGURE=configure
@@ -125,23 +123,8 @@ define download_extract
 	$(call extract,$2)
 endef
 
-ifeq (${PLATFORM},win)
-PLATFORM_QT_DEPS=jom
-PLATFORM_CLEAN_DEPS=clean-jom
-
-jom:
-	mkdir -p jom
-	curl -fL "${JOM_URL}" -o jom/jom.zip
-	cd jom && 7z x jom.zip
-
-.PHONY: clean-jom
-clean-jom:
-	rm -rf jom
-
-else
 PLATFORM_QT_DEPS=
 PLATFORM_CLEAN_DEPS=
-endif
 
 .PHONY: clean
 clean: clean-qt ${PLATFORM_CLEAN_DEPS}
